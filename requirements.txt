@@ -1,0 +1,18 @@
+tensorflow
+pandas
+numpy
+matplotlib
+seaborn
+dvc
+notebook
+python-box==6.0.2
+pyYAML  #to read the yml files
+tqdm    # to display the progress bar
+ensure==1.0.2   #
+joblib 
+types-PyYAML
+scipy
+Flask
+Flask-Cors
+
+-e .    # to create local package
