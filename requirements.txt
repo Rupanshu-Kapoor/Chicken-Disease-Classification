@@ -3,7 +3,7 @@ pandas
 numpy
 matplotlib
 seaborn
-dvc
+dvc     #ml ops tool to track pipelines
 notebook
 python-box==6.0.2
 pyYAML  #to read the yml files
