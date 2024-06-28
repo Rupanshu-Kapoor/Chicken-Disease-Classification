@@ -3,8 +3,7 @@ from CNNClassifier.components.prepare_base_model import PrepareBaseModel
 from CNNClassifier import logger
 
 
-
-STAGE_NAME = "Prepare Base Model Training"
+STAGE_NAME = "Prepare base model"
 
 class PrepareBaseModelTrainingPipeline:
     def __init__(self):
@@ -18,13 +17,17 @@ class PrepareBaseModelTrainingPipeline:
         prepare_base_model.update_base_model()
 
 
-if __name__ == "__main__":
+
+
+
+if __name__ == '__main__':
     try:
-        logger.info(f">>>>>>> stage {STAGE_NAME} started <<<<<<<")
+        logger.info(f"*******************")
+        logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
         obj = PrepareBaseModelTrainingPipeline()
         obj.main()
-        logger.info(f">>>>>>> stage {STAGE_NAME} completeed <<<<<<<\n\nx==========x")
-    
+        logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
     except Exception as e:
         logger.exception(e)
         raise e
+

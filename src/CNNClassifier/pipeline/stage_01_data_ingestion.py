@@ -2,7 +2,8 @@ from CNNClassifier.config.configuration import ConfigurationManager
 from CNNClassifier.components.data_ingestion import DataIngestion
 from CNNClassifier import logger
 
-STAGE_NAME = "Data Ingestion Stage"
+
+STAGE_NAME = "Data Ingestion stage"
 
 class DataIngestionTrainingPipeline:
     def __init__(self):
@@ -16,13 +17,14 @@ class DataIngestionTrainingPipeline:
         data_ingestion.extract_zip_file()
 
 
-if __name__ == "__main__":
+
+
+if __name__ == '__main__':
     try:
-        logger.info(f">>>>>>> stage {STAGE_NAME} started <<<<<<<")
+        logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
         obj = DataIngestionTrainingPipeline()
         obj.main()
-        logger.info(f">>>>>>> stage {STAGE_NAME} completeed <<<<<<<\n\nx==========x")
-    
+        logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
     except Exception as e:
         logger.exception(e)
         raise e
