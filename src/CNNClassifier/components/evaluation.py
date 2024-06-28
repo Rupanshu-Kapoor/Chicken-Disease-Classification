@@ -1,13 +1,15 @@
+import tensorflow as tf
+from pathlib import Path
 from CNNClassifier.entity.config_entity import EvaluationConfig
 from CNNClassifier.utils.common import save_json
-from pathlib import Path
-import tensorflow as tf
+
 
 
 class Evaluation:
     def __init__(self, config: EvaluationConfig):
         self.config = config
 
+    
     def _valid_generator(self):
 
         datagenerator_kwargs = dict(
@@ -32,16 +34,22 @@ class Evaluation:
             **dataflow_kwargs
         )
 
-
+    
     @staticmethod
     def load_model(path: Path) -> tf.keras.Model:
         return tf.keras.models.load_model(path)
+    
 
     def evaluation(self):
         model = self.load_model(self.config.path_of_model)
         self._valid_generator()
         self.score = model.evaluate(self.valid_generator)
 
+    
     def save_score(self):
-        scores = {"accuracy": self.score[1], "loss": self.score[0]}
+        scores = {"loss": self.score[0], "accuracy": self.score[1]}
         save_json(path=Path("scores.json"), data=scores)
+
+    
+
+    
