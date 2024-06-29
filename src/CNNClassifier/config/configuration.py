@@ -100,9 +100,12 @@ class ConfigurationManager:
 
 
     def get_validation_config(self) -> EvaluationConfig:
+        training_config = self.config.training
+        data_ingestion_config = self.config.data_ingestion
+        training_data_path = os.path.join(self.config.data_ingestion.unzip_dir, "Chicken-fecal-images")
         eval_config = EvaluationConfig(
-            path_of_model=Path("artifacts/training/model.h5"),
-            training_data=Path("artifacts/data_ingestion/Chicken-fecal-images"),
+            path_of_model=Path(training_config.trained_model_path),
+            training_data=training_data_path,
             all_params=self.params,
             params_image_size=self.params.IMAGE_SIZE,
             params_batch_size=self.params.BATCH_SIZE
